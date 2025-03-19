@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: stripe
+    description: "Raw stripe payment data from production database"
+    database: raw
+    schema: stripe
+    tables:
+      - name: payment
+        description: "Payment transactions table from Stripe"
+        columns:
+          - name: id
+            description: "Primary key for payments"
+            tests:
+              - unique
+              - not_null
+          - name: amount
+            description: "Payment amount in cents"
+            tests:
+              - not_null
+          - name: payment_method
+            description: "Method used for payment (card, bank transfer, etc)"
+          - name: status
+            description: "Payment status (success, failed, pending)"

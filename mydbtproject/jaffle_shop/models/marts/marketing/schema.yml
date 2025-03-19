@@ -1,0 +1,22 @@
+
+version: 2
+
+models:
+  - name: dims_customers
+    description: "Customer dimension table with order and payment information"
+    columns:
+      - name: customer_id
+        description: "Primary key for customers"
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "Customer's first name"
+      - name: last_name
+        description: "Customer's last name"
+      - name: order_date
+        description: "Date of the order"
+      - name: total_amount
+        description: "Total successful payment amount"
+        tests:
+          - not_null
